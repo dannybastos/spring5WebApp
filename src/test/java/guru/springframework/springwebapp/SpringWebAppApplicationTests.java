@@ -1,4 +1,4 @@
-package guru.springframework.springWebApp;
+package guru.springframework.springwebapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

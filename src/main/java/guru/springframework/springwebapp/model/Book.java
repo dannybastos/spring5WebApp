@@ -1,4 +1,4 @@
-package guru.springframework.springWebApp.spring5WebApp.model;
+package guru.springframework.springwebapp.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -22,16 +22,16 @@ public class Book {
     @ManyToMany
     @JoinTable( name = "author_book", joinColumns = @JoinColumn(name = "book_id")
         , inverseJoinColumns = @JoinColumn(name = "author_id"))
-    private Set<Author> authors = new HashSet<>();
+    private Set<Author> authors = new HashSet<Author>();
 
     public Book() {
     }
 
-    public Book(Integer id, String title, String isbn, String publisher) {
-        this.id = id;
+    public Book(String title, String isbn, String publisher) {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
+        this.authors = new HashSet<Author>();
     }
 
     public Integer getId() {
@@ -86,12 +86,13 @@ public class Book {
 
         Book book = (Book) o;
 
-        return id.equals(book.id);
+        return !(id != null ? !id.equals(book.id) : book.id != null);
+
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return id != null ? id.hashCode() : 0;
     }
 
     @Override

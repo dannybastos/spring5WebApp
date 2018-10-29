@@ -1,4 +1,4 @@
-package guru.springframework.springWebApp.spring5WebApp.model;
+package guru.springframework.springwebapp.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -19,12 +19,12 @@ public class Author {
     private String lastName;
 
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> books = new HashSet<>();
+    private Set<Book> books = new HashSet<Book>();
 
-    public Author(String firstName, String lastName, HashSet<Book> books) {
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.books = books;
+        this.books = new HashSet<Book>();
     }
 
     public Author() {
@@ -61,12 +61,13 @@ public class Author {
 
         Author author = (Author) o;
 
-        return id.equals(author.id);
+        return !(id != null ? !id.equals(author.id) : author.id != null);
+
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return id != null ? id.hashCode() : 0;
     }
 
     @Override
