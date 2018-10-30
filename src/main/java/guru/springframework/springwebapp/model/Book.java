@@ -31,7 +31,7 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
-        this.authors = new HashSet<Author>();
+        this.authors = new HashSet<>();
     }
 
     public Integer getId() {

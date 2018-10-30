@@ -1,6 +1,7 @@
 package guru.springframework.springwebapp.model;
 
 import javax.persistence.*;
+import java.util.StringJoiner;
 
 /**
  * Created by dannybastos on 29/10/18.
@@ -40,11 +41,10 @@ public class Publisher {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("Publisher{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return new StringJoiner(", ", Publisher.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("name='" + name + "'")
+                .toString();
     }
 
     public String getName() {

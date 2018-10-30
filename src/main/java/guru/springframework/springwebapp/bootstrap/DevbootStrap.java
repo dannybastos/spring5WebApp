@@ -1,9 +1,9 @@
 package guru.springframework.springwebapp.bootstrap;
 
-import guru.springframework.springwebapp.model.Author;
 import guru.springframework.springwebapp.model.Book;
 import guru.springframework.springwebapp.model.Publisher;
 import guru.springframework.springwebapp.repository.AuthorRepository;
+import guru.springframework.springwebapp.model.Author;
 import guru.springframework.springwebapp.repository.BookRepository;
 import guru.springframework.springwebapp.repository.PublisherRepository;
 import org.springframework.context.ApplicationListener;
